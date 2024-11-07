@@ -27,7 +27,55 @@
 .App-link {
   color: #61dafb;
 }
-
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /*overflow: hidden;*/
+}
+#exercise-list {
+  margin-top: 40px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+/*main {
+  background-color: #4c6085;
+  width: 70%;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-around;
+}*/
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #32322c;
+}
+.btn-search {
+  background-color: #39a0ed;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+.btn-search:hover {
+  background-color: azure;
+  color: #39a0ed;
+}
+.pencilsnow a,
+li,
+p,
+.btn-search {
+  color: snow;
+  font-size: 1.2rem;
+}
+a {
+  text-decoration: none;
+}
+.search-muscle-group {
+  width: 500px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

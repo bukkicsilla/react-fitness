@@ -1,0 +1,12 @@
+main {
+  background-color: #4c6085;
+  width: 70%;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-around;
+}
+li {
+  color: snow;
+}

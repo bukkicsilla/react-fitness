@@ -1,0 +1,17 @@
+.NavBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 10px;
+  background-color: aquamarine;
+  width: 100%;
+}
+.NavBar a {
+  color: #4c6085;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.NavBar a:hover {
+  color: silver;
+}
