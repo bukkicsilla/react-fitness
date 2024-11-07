@@ -1,13 +1,506 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/*https://stackoverflow.com/questions/21993661/css-auto-hide-elements-after-5-seconds/21994053#21994053*/
+/*body {
+  background-color: azure;
+  font-family: "Roboto", sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.two-containers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4c6085;
+  height: 100vh;
+}
+.my-container {
+  background-color: #4c6085;
+  width: 70%;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-around;
+  justify-content: space-evenly;
+}
+.profile-two-containers {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 150px auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; 
+  background-color: #4c6085;
+}
+
+.profile-container-info {
+  background-color: #4c6085;
+  width: 80%;
+  padding: 20px;
+  margin: 100px 0 50px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+}
+.profile-container-edit-delete {
+  background-color: #4c6085;
+  width: 50%;
+  padding: 20px;
+  margin: 100px 0 50px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: space-evenly; 
+}
+#profile,
+#login {
+  margin-top: 120px;
+}
+#register {
+  margin-top: 100px;
+}
+#muscle-groups {
+  width: 50%;
+}
+#search-muscle-group {
+  width: 500px;
+}
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #32322c;
+}
+.rating {
+  display: inline-block;
+  width: 50%;
+  height: 40px;
+  border: 3px solid gold;
+}
+#btn-rating {
+  border-radius: 50%;
+}
+.msguser,
+.success,
+.msgerror {
+  background-color: #9370db;
+  color: #fffafa;
+  width: 30%;
+  padding: 5px 10px;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  text-align: center;
+  -webkit-animation: cssAnimation 3s forwards;
+  animation: cssAnimation 3s forwards;
+}
+.msgerror {
+  background-color: rgb(201, 47, 47);
+  color: snow;
+  top: 70px;
+  bottom: auto;
+}
+@keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.pencilsnow a,
+li,
+p,
+.btn-search,
+.btn-login,
+.btn-register,
+.btn-edit,
+.btn-delete {
+  color: snow;
+  font-size: 1.2rem;
+}
+a {
+  text-decoration: none;
+}
+#navbar-workout,
+footer {
+  background-color: #36f1cd;
+}
+#btn-instructions {
+  border: 3px solid #32322c;
+}
+.form-workout {
+  margin-bottom: 30px;
+}
+.btn-search,
+.btn-login,
+.btn-register,
+.btn-edit,
+.btn-delete {
+  background-color: #39a0ed;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+.btn-search:hover,
+.btn-login:hover,
+.btn-register:hover,
+.btn-edit:hover,
+.btn-delete:hover {
+  background-color: azure;
+  color: #39a0ed;
+}
+.btn-playlist,
+.btn-back {
+  border: 2px solid #36f1cd;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+.btn-playlist:hover,
+.btn-back:hover {
+  background-color: #36f1cd;
+  color: azure;
+}
+.videos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#save-video {
+  margin: 0 auto;
+}/*
+
+
+/*****************************************/
+/* save and delete anchor button on top right corner of video */
+/*.video-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 50px;
+}
+
+/* The save '+' and delete 'X' anchor tag */
+/*.delete-video {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.add-playlist {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: green;
+  color: gold;
+  padding: 2px 6px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.add-video {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: green;
+  color: white;
+  padding: 2px 6px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 50%;
+  cursor: pointer;
+}*/
+/* Show '+' or 'X' when the iframe is hovered */
+.video-wrapper:hover .delete-video,
+.video-wrapper:hover .add-video,
+.video-wrapper:hover .add-playlist {
+  display: block;
+}
+
+/**************************************/
+
+/*.auth {
+  border: 3px solid snow;
+  border-radius: 8px;
+  text-align: center;
+  width: 50%;
+  margin: 50px 30px;
+  padding: 100px 20px;
+}
+.auth a {
+  color: #36f1cd;
+}
+.auth a:hover {
+  color: snow;
+}
+#login h1,
+#register h1,
+#profile h1 {
+  color: azure;
+  margin-top: 3rem;
+}
+#register h1 {
+  margin-top: 8rem;
+}
+.user {
+  color: #36f1cd;
+}*/
+
+/*Loading spinner */
+/*.centered {
+  text-align: center;
+}
+#loading-spinner {
+  padding-top: 100px;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1421790500381-fc9b5996f343?auto=format&fit=crop&q=80&w=2787&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#loading-spinner h1 {
+  color: darkgreen;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: darkgreen;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}*/
+/*  CSS loader credit: https://loading.io/css/ */
+/* additional credit: https://github.com/devtonic-net/flask-loading-app-message-and-spinner */
+
+.password-reset a {
+  color: snow;
+}
+
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  #auto-dismiss-alert {
+    width: 100%;
+  }
+  body {
+    font-size: 14px;
+  }
+
+  .two-containers {
+    height: auto;
+  }
+
+  .my-container {
+    width: 90%;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .profile-two-containers,
+  .profile-container-info,
+  .profile-container-edit-delete {
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  #profile,
+  #login,
+  #register {
+    margin-top: 60px;
+  }
+
+  #muscle-groups,
+  #search-muscle-group {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .msguser,
+  .success,
+  .msgerror {
+    width: 80%;
+    padding: 5px;
+    font-size: 1rem;
+  }
+
+  .pencilsnow a,
+  li,
+  p,
+  .btn-search,
+  .btn-login,
+  .btn-register,
+  .btn-edit,
+  .btn-delete {
+    font-size: 1rem;
+  }
+
+  .auth {
+    width: 90%;
+    padding: 50px 10px;
+    margin: 20px auto;
+  }
+
+  #navbar-workout,
+  footer {
+    padding: 10px;
+  }
+
+  .form-workout {
+    margin-bottom: 20px;
+  }
+
+  .btn-search,
+  .btn-login,
+  .btn-register,
+  .btn-edit,
+  .btn-delete,
+  .btn-playlist,
+  .btn-back {
+    padding: 8px 15px;
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+
+  .videos {
+    flex-direction: column;
+  }
+  .video-wrapper {
+    margin: 20px auto;
+    width: 320px;
+  }
+
+  .centered {
+    text-align: center;
+  }
+
+  #loading-spinner {
+    padding-top: 50px;
+    height: 100vh;
+  }
+
+  #loading-spinner h1 {
+    font-size: 1.5rem;
+  }
+  .auth {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+legend {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: snow;
+}
+.reset-password-container {
+  background-color: #4c6085;
+  width: 70%;
+  padding: 30px;
+  border-radius: 8px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-around;
+  justify-content: space-evenly;
 }
