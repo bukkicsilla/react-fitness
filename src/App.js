@@ -4,6 +4,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import NavBar from "./NavBar";
 import Videos from "./Videos";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
