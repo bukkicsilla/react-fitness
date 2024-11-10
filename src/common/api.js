@@ -69,13 +69,14 @@ class FitnessApi {
   /** Signup for site. */
   static async signup(data) {
     let res = await this.request("auth/register", data, "post");
+    console.log("res.token", res.token);
     return res.token;
   }
 
   /** Get token for login from username, password. */
   static async login(data) {
     let res = await this.request("auth/token", data, "post");
-    console.log("res.token", res.token);
+    //console.log("res.token", res.token);
     return res.token;
   }
 

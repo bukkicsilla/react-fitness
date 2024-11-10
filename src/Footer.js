@@ -7,7 +7,7 @@ const Footer = ({ logout }) => {
   let { currentUser } = useContext(UserContext);
   //currentUser = { first_name: "Lua", username: "lua" };
   return (
-    <div className="NavBar">
+    <div className="Footer">
       <a href="https://flask-workout.onrender.com/" target="_blank">
         Workout
       </a>

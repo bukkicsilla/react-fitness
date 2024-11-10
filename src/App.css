@@ -27,6 +27,15 @@
 .App-link {
   color: #61dafb;
 }*/
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.App-main-content {
+  flex: 1; /* Takes up all available space */
+}
 ul {
   list-style-type: none;
   margin: 0;

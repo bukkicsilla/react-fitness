@@ -12,6 +12,7 @@ import FitnessApi from "./common/api";
 import UserContext from "./UserContext";
 import PrivateRoute from "./PrivateRoute";
 import Login from "./forms/Login";
+import SignUp from "./forms/SignUp";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -94,30 +95,34 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ currentUser, setCurrentUser }}>
           <NavBar logout={logout} />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <PrivateRoute path="/myvideos">
-              <h1> My Videos ... </h1>
-            </PrivateRoute>
-            <Route path="/playlists">
-              <h1> Playlists ... </h1>
-            </Route>
-            <Route exact path="/login">
-              <Login login={login} />
-            </Route>
-
-            <Route path="/profile">
-              <h1> Profile ... </h1>
-            </Route>
-            <Route path="/videos/:name">
-              <Videos />
-            </Route>
-            <Route path="*">
-              <h1>404 Not Found</h1>
-            </Route>
-          </Switch>
+          <div className="App-main-content">
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <PrivateRoute path="/myvideos">
+                <h1> My Videos ... </h1>
+              </PrivateRoute>
+              <Route path="/playlists">
+                <h1> Playlists ... </h1>
+              </Route>
+              <Route exact path="/login">
+                <Login login={login} />
+              </Route>
+              <Route exact path="/signup">
+                <SignUp signup={signup} />
+              </Route>
+              <Route path="/profile">
+                <h1> Profile ... </h1>
+              </Route>
+              <Route path="/videos/:name">
+                <Videos />
+              </Route>
+              <Route path="*">
+                <h1>404 Not Found</h1>
+              </Route>
+            </Switch>
+          </div>
           <Footer logout={logout} />
         </UserContext.Provider>
       </BrowserRouter>

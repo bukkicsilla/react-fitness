@@ -7,7 +7,7 @@ import "./Login.css";
  * It shows form and manages update to state on changes.
  * On submission:
  * - calls login function prop
- * - redirects to /home route
+ * - redirects to home route
  *
  * Routes -> Login
  * Routed as /login

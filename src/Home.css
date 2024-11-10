@@ -3,7 +3,7 @@ main {
   width: 70%;
   padding: 30px;
   border-radius: 8px;
-  margin: 50px auto;
+  margin: 40px auto 20px;
   display: flex;
   justify-content: space-around;
 }

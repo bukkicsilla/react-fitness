@@ -1,9 +1,10 @@
-.Fooer {
+.Footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 20px 10px;
   background-color: aquamarine;
+  background-color: #12bdce;
   width: 100%;
 }
 .Footer a {
