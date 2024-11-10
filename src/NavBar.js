@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import UserContext from "./UserContext";
 import "./NavBar.css";
-const NavBar = () => {
+
+const NavBar = ({ logout }) => {
+  const { currentUser } = useContext(UserContext);
   return (
     <div className="NavBar">
       <NavLink exact to="/">

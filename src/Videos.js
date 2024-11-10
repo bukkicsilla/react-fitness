@@ -1,9 +1,10 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Videos.css";
 
-const BASE_URL = "http://localhost:3001/api/fitness";
+const BASE_URL = "http://localhost:3001";
 const Videos = () => {
   const { name } = useParams();
   const [videos, setVideos] = useState([]);
