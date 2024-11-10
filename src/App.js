@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import FitnessApi from "./common/api";
 import UserContext from "./UserContext";
 import PrivateRoute from "./PrivateRoute";
+import Login from "./forms/Login";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -22,8 +23,10 @@ function App() {
   useEffect(() => {
     async function getCurrentUser() {
       if (token) {
+        console.log("App token", token);
         try {
           let { username } = jwt.decode(token);
+          console.log("App username", username);
           // put the token on the Api class so it can use it to call the API.
           FitnessApi.token = token;
           let currentUser = await FitnessApi.getCurrentUser(username);
@@ -101,6 +104,10 @@ function App() {
             <Route path="/playlists">
               <h1> Playlists ... </h1>
             </Route>
+            <Route exact path="/login">
+              <Login login={login} />
+            </Route>
+
             <Route path="/profile">
               <h1> Profile ... </h1>
             </Route>

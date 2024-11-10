@@ -5,7 +5,7 @@ import "./NavBar.css";
 
 const NavBar = () => {
   let { currentUser } = useContext(UserContext);
-  currentUser = { first_name: "Lua", username: "lua" };
+  //currentUser = { first_name: "Lua", username: "lua" };
   return (
     <div className="NavBar">
       <NavLink exact to="/">

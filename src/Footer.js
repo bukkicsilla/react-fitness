@@ -5,7 +5,7 @@ import "./Footer.css";
 
 const Footer = ({ logout }) => {
   let { currentUser } = useContext(UserContext);
-  currentUser = { first_name: "Lua", username: "lua" };
+  //currentUser = { first_name: "Lua", username: "lua" };
   return (
     <div className="NavBar">
       <a href="https://flask-workout.onrender.com/" target="_blank">
