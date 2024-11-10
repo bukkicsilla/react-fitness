@@ -3,22 +3,36 @@ import { Link, NavLink } from "react-router-dom";
 import UserContext from "./UserContext";
 import "./NavBar.css";
 
-const NavBar = ({ logout }) => {
-  const { currentUser } = useContext(UserContext);
+const NavBar = () => {
+  let { currentUser } = useContext(UserContext);
+  currentUser = { first_name: "Lua", username: "lua" };
   return (
     <div className="NavBar">
       <NavLink exact to="/">
         Fitness
       </NavLink>
-      <NavLink exact to="/myvideos">
-        My Videos
-      </NavLink>
-      <NavLink exact to="/playlists">
-        Playlists
-      </NavLink>
-      <NavLink exact to="/profile">
-        Profile
-      </NavLink>
+      {currentUser && (
+        <NavLink exact to="/myvideos">
+          My Videos
+        </NavLink>
+      )}
+      {currentUser && (
+        <NavLink exact to="/playlists">
+          Playlists
+        </NavLink>
+      )}
+      {!currentUser && (
+        <>
+          <NavLink className="nav-link" to="/login">
+            {" "}
+            Login{" "}
+          </NavLink>
+          <NavLink className="nav-link" to="/signup">
+            {" "}
+            Signup{" "}
+          </NavLink>
+        </>
+      )}
     </div>
   );
 };

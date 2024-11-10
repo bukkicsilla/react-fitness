@@ -5,10 +5,12 @@ import LocalStorage from "./common/LocalStorage";
 import jwt from "jsonwebtoken";
 import Home from "./Home";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 import Videos from "./Videos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FitnessApi from "./common/api";
 import UserContext from "./UserContext";
+import PrivateRoute from "./PrivateRoute";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -93,9 +95,9 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/myvideos">
+            <PrivateRoute path="/myvideos">
               <h1> My Videos ... </h1>
-            </Route>
+            </PrivateRoute>
             <Route path="/playlists">
               <h1> Playlists ... </h1>
             </Route>
@@ -109,6 +111,7 @@ function App() {
               <h1>404 Not Found</h1>
             </Route>
           </Switch>
+          <Footer logout={logout} />
         </UserContext.Provider>
       </BrowserRouter>
     </div>
