@@ -8,9 +8,12 @@ const Footer = ({ logout }) => {
   //currentUser = { first_name: "Lua", username: "lua" };
   return (
     <div className="Footer">
-      <a href="https://flask-workout.onrender.com/" target="_blank">
+      {/*<a href="https://flask-workout.onrender.com/" target="_blank">
         Workout
-      </a>
+      </a>*/}
+      <NavLink exact to="/about">
+        About
+      </NavLink>
       {currentUser && (
         <>
           <NavLink exact to="/profile">

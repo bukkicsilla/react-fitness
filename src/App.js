@@ -21,6 +21,7 @@ import Login from "./forms/Login";
 import SignUp from "./forms/SignUp";
 import Profile from "./Profile";
 import EditUserForm from "./forms/EditUserForm";
+import About from "./About";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -137,6 +138,9 @@ function App() {
               </Route>
               <Route path="/videos/:name">
                 <Videos />
+              </Route>
+              <Route path="/about">
+                <About />
               </Route>
               <Route path="*">
                 <h1>404 Not Found</h1>

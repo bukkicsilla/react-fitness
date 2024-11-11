@@ -1,0 +1,22 @@
+.About {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+.About p,
+.About a {
+  color: #20343f;
+}
+.About a:hover {
+  color: #1692a2;
+}
+.About > p {
+  color: #1692a2;
+  width: 70%;
+}
+.About h1 {
+  color: #2373a6;
+}
