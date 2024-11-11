@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import "./Profile.css";
-const Profile = () => {
-  let { currentUser, userId } = useContext(UserContext);
+const Profile = ({ deleteProfile }) => {
+  let { currentUser } = useContext(UserContext);
   return (
     <div className="Profile-two-containers">
       <div className="Profile-container-info" id="Profile-profile">
@@ -23,9 +24,9 @@ const Profile = () => {
           </a>
         </div>
         <div>
-          <a href="/users/delete/{{user.id}}" className="btn btn-delete">
+          <button className="btn btn-delete" onClick={deleteProfile}>
             Delete Profile
-          </a>
+          </button>
         </div>
       </div>
     </div>

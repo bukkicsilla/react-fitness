@@ -1,6 +1,12 @@
 //import logo from "./logo.svg";
 import React, { useState, useEffect } from "react";
-import { Switch, BrowserRouter, Route, Redirect } from "react-router-dom";
+import {
+  Switch,
+  BrowserRouter,
+  Route,
+  Redirect,
+  useHistory,
+} from "react-router-dom";
 import LocalStorage from "./common/LocalStorage";
 import jwt from "jsonwebtoken";
 import Home from "./Home";
@@ -80,16 +86,17 @@ function App() {
   }
 
   /** Deletes a user and all their data */
-  /*async function deleteUser() {
+  async function deleteProfile() {
     try {
-      await JoblyApi.deleteProfile(currentUser.username);
+      //await FitnessApi.deleteProfile(currentUser.username);
+      await FitnessApi.deleteUser(currentUser.id);
       logout();
       return { success: true };
     } catch (errors) {
       console.error("delete failed", errors);
       return { success: false, errors };
     }
-  }*/
+  }
 
   /** Handles site-wide logout. */
   const logout = () => {
@@ -121,9 +128,9 @@ function App() {
               <Route exact path="/signup">
                 <SignUp signup={signup} />
               </Route>
-              <Route path="/profile">
-                <Profile />
-              </Route>
+              <PrivateRoute path="/profile">
+                <Profile deleteProfile={deleteProfile} />
+              </PrivateRoute>
               <Route path="/videos/:name">
                 <Videos />
               </Route>
