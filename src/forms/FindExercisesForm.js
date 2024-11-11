@@ -3,7 +3,9 @@ import axios from "axios";
 //const BASE_URL = "http://localhost:5001/api/fitness";
 //const BASE_URL = "https://flask-workout.onrender.com/api/fitness";
 //const BASE_URL = "http://localhost:3001/api/fitness";
-const BASE_URL = "http://localhost:3001";
+//const BASE_URL = "http://localhost:3001";
+//const BASE_URL = "https://node-fitness.onrender.com";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 const FindExercisesForm = ({ findExercisesByMuscle }) => {
   const initialState = {
