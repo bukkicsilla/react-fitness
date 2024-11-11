@@ -81,8 +81,13 @@ class FitnessApi {
   }
 
   /** Save user profile edits. */
-  static async saveProfile(username, data) {
+  /*static async saveProfile(username, data) {
     let res = await this.request(`users/${username}`, data, "patch");
+    return res.user;
+  }*/
+
+  static async updateProfile(id, data) {
+    let res = await this.request(`users/${id}`, data, "patch");
     return res.user;
   }
 

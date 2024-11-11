@@ -19,11 +19,12 @@ const EditUserForm = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const history = useHistory();
   const INITIAL_STATE = {
-    username: "",
-    email: "",
-    first_name: "",
-    last_name: "",
+    username: currentUser.username,
+    email: currentUser.email,
+    first_name: currentUser.first_name,
+    last_name: currentUser.last_name,
   };
+  console.log("currentUser", INITIAL_STATE);
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [message, setMessage] = useState("");
   const [formErrors, setFormErrors] = useState([]);
@@ -48,12 +49,13 @@ const EditUserForm = () => {
       last_name: formData.last_name,
     };
 
-    let username = formData.username;
+    //let username = formData.username;
     let updatedUser;
 
     try {
-      updatedUser = await FitnessApi.saveProfile(username, profileData);
+      updatedUser = await FitnessApi.updateProfile(currentUser.id, profileData);
       setMessage("Saved successfully!");
+      history.push("/profile");
     } catch (errors) {
       setFormErrors(errors);
       return;
@@ -70,7 +72,7 @@ const EditUserForm = () => {
     <div className="EditUserForm col-md-5 offset-md-4 col-lg-4 offset-lg-4">
       <Card>
         <CardBody>
-          <h1>Edit User Profile</h1>
+          <h1>Edit User Profile {currentUser.id}</h1>
           <Form className="EditUserForm-form" onSubmit={handleSubmit}>
             <Label htmlFor="username" className="EditUserForm-Label">
               Username
