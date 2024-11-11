@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Groups from "./Groups";
 import "./Home.css";
-import FindExercisesForm from "./FindExercisesForm";
+import FindExercisesForm from "./forms/FindExercisesForm";
+import UserContext from "./UserContext";
 
 const Home = () => {
   const [exercises, setExercises] = useState([]);
+  let { currentUser, userId } = useContext(UserContext);
   /*useEffect(() => {
     async function getAllExercises() {
       try {

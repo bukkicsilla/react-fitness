@@ -20,22 +20,26 @@ export const TOKEN_STORAGE_ID = "fitness-token";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [userId, setUserId] = useState(0);
   const [token, setToken] = LocalStorage(TOKEN_STORAGE_ID);
   useEffect(() => {
     async function getCurrentUser() {
       if (token) {
         console.log("App token", token);
         try {
-          let { username } = jwt.decode(token);
-          console.log("App username", username);
+          let { username, userid } = jwt.decode(token);
+          //console.log("user username", username);
+          //console.log("user id", userId);
           // put the token on the Api class so it can use it to call the API.
           FitnessApi.token = token;
           let currentUser = await FitnessApi.getCurrentUser(username);
           console.log("Current User: ", currentUser);
           setCurrentUser(currentUser);
+          setUserId(userid);
         } catch (err) {
           console.error("App getCurrentUser: problem loading", err);
           setCurrentUser(null);
+          setUserId(0);
         }
       }
     }
@@ -64,6 +68,13 @@ function App() {
     try {
       let token = await FitnessApi.login(loginData);
       setToken(token);
+      let { username, userId } = jwt.decode(token);
+      //console.log("user username", username);
+      //console.log("user id", userId);
+      FitnessApi.token = token;
+      let currentUser = await FitnessApi.getCurrentUser(username);
+      //console.log("Current User: ", currentUser);
+      //setCurrentUser(currentUser);
       setCurrentUser(token);
       return { success: true };
     } catch (errors) {
@@ -87,14 +98,18 @@ function App() {
   /** Handles site-wide logout. */
   const logout = () => {
     setCurrentUser(null);
+    setUserId(0);
     setToken("token");
   };
 
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <UserContext.Provider
+          value={{ currentUser, setCurrentUser, userId, setUserId }}
+        >
           <NavBar logout={logout} />
+          {/*<h1 style={{ color: "#e9316d" }}> Color red Pink</h1>*/}
           <div className="App-main-content">
             <Switch>
               <Route exact path="/">

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import UserContext from "./UserContext";
 import { useEffect, useState } from "react";
+import Auth from "./Auth";
 import "./Videos.css";
 
 const BASE_URL = "http://localhost:3001";
@@ -30,7 +31,7 @@ const Videos = () => {
 
         <section className="videos">
           {videos.map((video) => (
-            <div className="video-wrapper">
+            <div key={video.videoid} className="video-wrapper">
               <iframe
                 width="320"
                 height="180"
@@ -38,7 +39,7 @@ const Videos = () => {
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
               <a
                 href={`auth/videos/add/${name}/${video.videoid}`}
@@ -53,9 +54,7 @@ const Videos = () => {
     );
   }
 
-  return (
-    <div>{currentUser ? showVideos() : <h1>Please login to view </h1>}</div>
-  );
+  return <div>{currentUser ? showVideos() : <Auth />}</div>;
 };
 
 export default Videos;
