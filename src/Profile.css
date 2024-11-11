@@ -1,0 +1,50 @@
+.Profile-two-containers {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Center content vertically */
+  background-color: #4c6085;
+}
+
+.Profile-container-info {
+  background-color: #4c6085;
+  width: 80%;
+  padding: 20px;
+  margin: 100px 0 50px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+}
+.Profile-container-edit-delete {
+  background-color: #4c6085;
+  width: 50%;
+  padding: 20px;
+  margin: 100px 0 50px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: space-evenly; /* Center content vertically */
+}
+.Profile-heading {
+  color: snow;
+}
+#Profile-profile {
+  margin-top: 120px;
+}
+.user {
+  color: #36f1cd;
+}
+.btn-edit,
+.btn-delete {
+  font-size: 1rem;
+  padding: 8px 15px;
+  font-size: 1rem;
+  margin: 8px 0;
+  color: snow;
+}

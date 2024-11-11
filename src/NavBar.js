@@ -24,12 +24,10 @@ const NavBar = () => {
       {!currentUser && (
         <>
           <NavLink className="nav-link" to="/login">
-            {" "}
-            Login{" "}
+            Login
           </NavLink>
           <NavLink className="nav-link" to="/signup">
-            {" "}
-            Signup{" "}
+            Signup
           </NavLink>
         </>
       )}
