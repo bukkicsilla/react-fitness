@@ -17,11 +17,11 @@ const Profile = ({ deleteProfile }) => {
           <h4 className="user">Email: {currentUser.email}</h4>
         </div>
       </div>
-      <div className="profile-container-edit-delete">
+      <div className="Profile-container-edit-delete">
         <div>
-          <a href="/users/update/{{user.id}}" className="btn btn-edit">
+          <Link className="btn btn-edit" to="/editprofile">
             Edit Profile
-          </a>
+          </Link>
         </div>
         <div>
           <button className="btn btn-delete" onClick={deleteProfile}>

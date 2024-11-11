@@ -20,6 +20,7 @@ import PrivateRoute from "./PrivateRoute";
 import Login from "./forms/Login";
 import SignUp from "./forms/SignUp";
 import Profile from "./Profile";
+import EditUserForm from "./forms/EditUserForm";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -131,6 +132,9 @@ function App() {
               <PrivateRoute path="/profile">
                 <Profile deleteProfile={deleteProfile} />
               </PrivateRoute>
+              <Route exact path="/editprofile">
+                <EditUserForm />
+              </Route>
               <Route path="/videos/:name">
                 <Videos />
               </Route>
