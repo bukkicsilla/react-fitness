@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import UserContext from "./UserContext";
+import Spinner from "./common/Spinner";
 import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 function MyVideos() {
   const [muscleGroups, setMuscleGroups] = useState({});
   const [ids, setIds] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   let { currentUser } = useContext(UserContext);
 
   useEffect(() => {
@@ -17,13 +19,15 @@ function MyVideos() {
         );
         setMuscleGroups(response.data.muscle_groups);
         setIds(response.data.ids);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching videos:", error);
       }
     }
-
     fetchVideos();
   }, []);
+
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="container-fluid mt-4">
