@@ -6,9 +6,9 @@ import "./Spinner.css";
 const Spinner = () => {
   return (
     <div id="loading-spinner">
-      <h1 class="centered">Loading...</h1>
-      <div class="centered">
-        <div class="lds-facebook">
+      <h1 className="centered">Loading...</h1>
+      <div className="centered">
+        <div className="lds-facebook">
           <div></div>
           <div></div>
           <div></div>

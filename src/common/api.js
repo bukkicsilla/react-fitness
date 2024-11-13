@@ -43,6 +43,14 @@ class FitnessApi {
     return res.user;
   }
 
+  /** Get videos with current User */
+  static async getVideos(id) {
+    //const res = await axios.get(`${BASE_URL}/users/${currentUser.id}/videos`);
+    const res = await this.request(`users/${id}/videos`);
+    console.log("res get videos", res);
+    return res;
+  }
+
   /** Get companies (filtered by name if not undefined) */
   /*static async getCompanies(name) {
     let res = await this.request("companies", { name });

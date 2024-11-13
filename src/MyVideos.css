@@ -1,6 +1,47 @@
-.MyVideos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+.rating {
+  display: inline-block;
+  width: 50%;
+  height: 40px;
+  border: 3px solid gold;
+}
+#btn-rating {
+  border-radius: 50%;
+}
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 50px;
+}
+
+/* The save '+' and delete 'X' anchor tag */
+.delete-video {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.add-playlist {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: green;
+  color: gold;
+  padding: 2px 6px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* Show '+' or 'X' when the iframe is hovered */
+.video-wrapper:hover .delete-video,
+.video-wrapper:hover .add-playlist {
+  display: block;
 }

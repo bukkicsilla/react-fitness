@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import UserContext from "./UserContext";
 import Spinner from "./common/Spinner";
-import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+import FitnessApi from "./common/api";
+import "./MyVideos.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 function MyVideos() {
   const [muscleGroups, setMuscleGroups] = useState({});
@@ -13,12 +14,9 @@ function MyVideos() {
   useEffect(() => {
     async function fetchVideos() {
       try {
-        //const response = await axios.get("/auth/myVideosLoaded");
-        const response = await axios.get(
-          `${BASE_URL}/users/${currentUser.id}/videos`
-        );
-        setMuscleGroups(response.data.muscle_groups);
-        setIds(response.data.ids);
+        const response = await FitnessApi.getVideos(currentUser.id);
+        setMuscleGroups(response.muscle_groups);
+        setIds(response.ids);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching videos:", error);
