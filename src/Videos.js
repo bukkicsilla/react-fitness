@@ -5,8 +5,7 @@ import UserContext from "./UserContext";
 import { useEffect, useState } from "react";
 import Auth from "./Auth";
 import "./Videos.css";
-
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 const Videos = () => {
   const { name } = useParams();
   let { currentUser } = useContext(UserContext);
