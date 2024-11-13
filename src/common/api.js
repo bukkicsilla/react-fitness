@@ -47,7 +47,13 @@ class FitnessApi {
   static async getVideos(id) {
     //const res = await axios.get(`${BASE_URL}/users/${currentUser.id}/videos`);
     const res = await this.request(`users/${id}/videos`);
-    console.log("res get videos", res);
+    //console.log("res get videos", res);
+    return res;
+  }
+
+  static async getPlaylists(id) {
+    const res = await this.request(`users/${id}/playlists-with-videos`);
+    console.log("res get playlists", res);
     return res;
   }
 

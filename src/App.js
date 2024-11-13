@@ -23,6 +23,7 @@ import Profile from "./Profile";
 import EditUserForm from "./forms/EditUserForm";
 import About from "./About";
 import MyVideos from "./MyVideos";
+import Playlists from "./Playlists";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -123,7 +124,7 @@ function App() {
                 <MyVideos />
               </PrivateRoute>
               <Route path="/playlists">
-                <h1> Playlists ... </h1>
+                <Playlists />
               </Route>
               <Route exact path="/login">
                 <Login login={login} />
