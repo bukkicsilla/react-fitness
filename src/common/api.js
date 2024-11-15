@@ -51,6 +51,16 @@ class FitnessApi {
     return res;
   }
 
+  static async addVideo(name, videoid) {
+    const res = await this.request(`videos/${name}/${videoid}`, {}, "post");
+    return res;
+  }
+
+  static async deleteUserVideo(id) {
+    const res = await this.request(`videos/uv/${id}`, {}, "delete");
+    return res;
+  }
+
   static async getPlaylists(id) {
     const res = await this.request(`users/${id}/playlists-with-videos`);
     console.log("res get playlists", res);

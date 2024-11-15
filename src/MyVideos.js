@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import UserContext from "./UserContext";
 import Spinner from "./common/Spinner";
 import FitnessApi from "./common/api";
@@ -6,6 +7,7 @@ import "./MyVideos.css";
 //import "bootstrap/dist/css/bootstrap.min.css";
 
 function MyVideos() {
+  const history = useHistory();
   const [muscleGroups, setMuscleGroups] = useState({});
   const [ids, setIds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +26,17 @@ function MyVideos() {
     }
     fetchVideos();
   }, []);
+
+  async function deleteUserVideo(id) {
+    try {
+      const res = await FitnessApi.deleteUserVideo(id);
+      console.log("delete uservideo", res);
+      history.replace("/");
+      history.push("/myvideos");
+    } catch (e) {
+      console.log("Error", e);
+    }
+  }
 
   if (isLoading) return <Spinner />;
 
@@ -55,12 +68,12 @@ function MyVideos() {
                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen
                             ></iframe>
-                            <a
-                              href={`/auth/videos/delete/${video.id}`}
+                            <button
                               className="delete-video"
+                              onClick={() => deleteUserVideo(video.id)}
                             >
                               X
-                            </a>
+                            </button>
                             <form action={`/rating/${video.id}`} method="POST">
                               <label htmlFor={video.id}>
                                 <i

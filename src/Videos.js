@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import UserContext from "./UserContext";
 import { useEffect, useState } from "react";
 import Auth from "./Auth";
 import "./Videos.css";
+import FitnessApi from "./common/api";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 const Videos = () => {
+  const history = useHistory();
   const { name } = useParams();
   let { currentUser } = useContext(UserContext);
   const [videos, setVideos] = useState([]);
@@ -22,6 +24,19 @@ const Videos = () => {
     }
     getVideos();
   }, [name]);
+
+  async function addVideo(name, videoid) {
+    try {
+      const res = await FitnessApi.addVideo(name, videoid);
+      if (res.msg === "Video already added") {
+        history.push("/");
+      } else {
+        history.push("/myvideos");
+      }
+    } catch (e) {
+      console.log("Error", e);
+    }
+  }
 
   function showVideos() {
     return (
@@ -40,12 +55,12 @@ const Videos = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-              <a
-                href={`auth/videos/add/${name}/${video.videoid}`}
+              <button
                 className="add-video"
+                onClick={() => addVideo(name, video.videoid)}
               >
                 +
-              </a>
+              </button>
             </div>
           ))}
         </section>
