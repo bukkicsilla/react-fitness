@@ -86,29 +86,13 @@ class FitnessApi {
     return res;
   }
 
-  /** Get companies (filtered by name if not undefined) */
-  /*static async getCompanies(name) {
-    let res = await this.request("companies", { name });
-    return res.companies;
-  }*/
-
-  /** Get details on a company by handle. */
-  /*static async getCompany(handle) {
-    let res = await this.request(`companies/${handle}`);
-    return res.company;
-  }*/
-
-  /** Get jobs by title (filtered by name if not undefined) */
-  /*static async getJobs(title) {
-    let res = await this.request("jobs", { title });
-    return res.jobs;
-  }*/
-
-  /** Get jobs by id */
-  /*static async getJobsByID(id) {
-    let res = await this.request(`jobs/${id}`);
-    return res.job;
-  }*/
+  static async rateVideo(id, rating) {
+    console.log("Rating video", id, rating);
+    //const res = await this.request(`videos/rating/${1}`, rating, "post");
+    const res = await this.request(`videos/rating/${id}/${rating}`, {}, "post");
+    console.log("res api rate video", res);
+    return "res";
+  }
 
   /** Signup for site. */
   static async signup(data) {
@@ -142,11 +126,6 @@ class FitnessApi {
   static async deleteUser(id) {
     await this.request(`users/${id}`, {}, "delete");
   }
-
-  /** Save job to current user. */
-  /*static async applyToJob(username, jobID) {
-    await this.request(`users/${username}/jobs/${jobID}`, {}, "post");
-  }*/
 }
 
 // for now, put token ("testuser" / "password" on class)

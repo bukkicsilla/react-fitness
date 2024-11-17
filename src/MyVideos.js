@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import Spinner from "./common/Spinner";
 import FitnessApi from "./common/api";
+import RatingForm from "./forms/RatingForm";
 import "./MyVideos.css";
 //import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -74,7 +75,7 @@ function MyVideos() {
                             >
                               X
                             </button>
-                            <form action={`/rating/${video.id}`} method="POST">
+                            {/*<form action={`/rating/${video.id}`} method="POST">
                               <label htmlFor={video.id}>
                                 <i
                                   style={{ color: "gold", fontSize: "1.5rem" }}
@@ -102,7 +103,8 @@ function MyVideos() {
                                   className="fa fa-star-o"
                                 ></i>
                               </button>
-                            </form>
+                            </form>*/}
+                            <RatingForm video={video} />
                             <Link
                               to={`/addvideotoplaylist/${video.id}`}
                               className="add-playlist"
