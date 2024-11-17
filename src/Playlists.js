@@ -1,12 +1,13 @@
 // components/Playlists.js
 import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import UserContext from "./UserContext";
 import Spinner from "./common/Spinner";
 import FitnessApi from "./common/api";
 import "./Playlists.css";
-import axios from "axios";
 
 function Playlists() {
+  const history = useHistory();
   const [playlists, setPlaylists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useContext(UserContext);
@@ -24,6 +25,17 @@ function Playlists() {
 
     fetchPlaylists();
   }, []);
+
+  async function deletePlaylistVideo(playlistName, videoId) {
+    try {
+      const res = await FitnessApi.deletePlaylistVideo(playlistName, videoId);
+      console.log("delete playlist video", res);
+      history.replace("/");
+      history.push("/playlists");
+    } catch (e) {
+      console.log("Error", e);
+    }
+  }
 
   if (isLoading) return <Spinner />;
 
@@ -46,14 +58,14 @@ function Playlists() {
                           height="180"
                           src={`https://www.youtube.com/embed/${video.videoid}`}
                           title="YouTube video player"
-                          frameBorder="0"
+                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                         ></iframe>
                         <button
                           className="delete-video"
                           onClick={() =>
-                            handleDeleteVideo(playlist.id, video.id)
+                            deletePlaylistVideo(playlist.name, video.id)
                           }
                         >
                           X
@@ -70,18 +82,5 @@ function Playlists() {
     </div>
   );
 }
-
-const handleDeleteVideo = async (playlistId, videoId) => {
-  try {
-    await axios.delete(`/api/playlists/${playlistId}/videos/${videoId}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    // Refresh playlists here if necessary
-  } catch (error) {
-    console.error("Error deleting video:", error);
-  }
-};
 
 export default Playlists;
