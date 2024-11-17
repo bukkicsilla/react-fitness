@@ -24,6 +24,7 @@ import EditUserForm from "./forms/EditUserForm";
 import About from "./About";
 import MyVideos from "./MyVideos";
 import Playlists from "./Playlists";
+import PlaylistForm from "./forms/PlaylistForm";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -109,6 +110,15 @@ function App() {
     setToken("token");
   };
 
+  const addVideoToPlaylist = async (playlistName, videoId) => {
+    try {
+      const res = await FitnessApi.addVideoToPlaylist(playlistName, videoId);
+      return res;
+    } catch (errors) {
+      console.error("add video failed", errors);
+    }
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -140,6 +150,9 @@ function App() {
               </Route>
               <Route path="/videos/:name">
                 <Videos />
+              </Route>
+              <Route path="/addvideotoplaylist/:video_id">
+                <PlaylistForm addVideoToPlaylist={addVideoToPlaylist} />
               </Route>
               <Route path="/about">
                 <About />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import Spinner from "./common/Spinner";
 import FitnessApi from "./common/api";
@@ -103,12 +103,18 @@ function MyVideos() {
                                 ></i>
                               </button>
                             </form>
-                            <a
+                            {/*<a
                               href={`/auth/playlists/add/${video.id}`}
                               className="add-playlist"
                             >
                               +
-                            </a>
+                            </a>*/}
+                            <Link
+                              to={`/addvideotoplaylist/${video.id}`}
+                              className="add-playlist"
+                            >
+                              +
+                            </Link>
                           </div>
                         ) : null
                       )

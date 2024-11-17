@@ -24,7 +24,7 @@ const EditUserForm = () => {
     first_name: currentUser.first_name,
     last_name: currentUser.last_name,
   };
-  console.log("currentUser", INITIAL_STATE);
+
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [message, setMessage] = useState("");
   const [formErrors, setFormErrors] = useState([]);

@@ -67,6 +67,16 @@ class FitnessApi {
     return res;
   }
 
+  static async addVideoToPlaylist(playlistname, videoid) {
+    const res = await this.request(
+      `playlists/videos/${playlistname}/${videoid}`,
+      {},
+      "post"
+    );
+    console.log("res add video to playlist", res);
+    return res;
+  }
+
   /** Get companies (filtered by name if not undefined) */
   /*static async getCompanies(name) {
     let res = await this.request("companies", { name });
