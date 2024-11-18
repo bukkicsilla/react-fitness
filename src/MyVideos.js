@@ -12,12 +12,13 @@ function MyVideos() {
   const [muscleGroups, setMuscleGroups] = useState({});
   const [ids, setIds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [mode, setMode] = useState("muscle");
   let { currentUser } = useContext(UserContext);
 
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const response = await FitnessApi.getVideos(currentUser.id);
+        const response = await FitnessApi.getVideos(currentUser.id, mode);
         setMuscleGroups(response.muscle_groups);
         setIds(response.ids);
         setIsLoading(false);
@@ -26,7 +27,7 @@ function MyVideos() {
       }
     }
     fetchVideos();
-  }, []);
+  }, [mode]);
 
   async function deleteUserVideo(id) {
     try {
@@ -43,6 +44,12 @@ function MyVideos() {
 
   return (
     <div className="container-fluid mt-4">
+      <select onChange={(e) => setMode(e.target.value)}>
+        <option value="muscle">Muscle</option>
+        <option value="equipment">Equipment</option>
+        <option value="exercise_type">Type</option>
+        <option value="difficulty">Difficulty</option>
+      </select>
       {Object.keys(muscleGroups).length === 0 ? (
         <h3 className="text-center">You have no videos yet.</h3>
       ) : (

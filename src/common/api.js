@@ -44,9 +44,9 @@ class FitnessApi {
   }
 
   /** Get videos with current User */
-  static async getVideos(id) {
+  static async getVideos(id, mode = "muscle") {
     //const res = await axios.get(`${BASE_URL}/users/${currentUser.id}/videos`);
-    const res = await this.request(`users/${id}/videos`);
+    const res = await this.request(`users/${id}/videos/${mode}`);
     //console.log("res get videos", res);
     return res;
   }
