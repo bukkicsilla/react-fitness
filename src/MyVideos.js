@@ -44,11 +44,22 @@ function MyVideos() {
 
   return (
     <div className="container-fluid mt-4">
-      <select onChange={(e) => setMode(e.target.value)}>
-        <option value="muscle">Muscle</option>
-        <option value="equipment">Equipment</option>
-        <option value="exercise_type">Type</option>
-        <option value="difficulty">Difficulty</option>
+      <select
+        onChange={(e) => setMode(e.target.value)}
+        className="select-dropdown px-4 py-2"
+      >
+        <option value="muscle" className="option-item">
+          Muscle
+        </option>
+        <option value="equipment" className="option-item">
+          Equipment
+        </option>
+        <option value="exercise_type" className="option-item">
+          Type
+        </option>
+        <option value="difficulty" className="option-item">
+          Difficulty
+        </option>
       </select>
       {Object.keys(muscleGroups).length === 0 ? (
         <h3 className="text-center">You have no videos yet.</h3>

@@ -45,3 +45,33 @@
 .video-wrapper:hover .add-playlist {
   display: block;
 }
+
+.select-dropdown {
+  width: 100%; /* Adjust as needed */
+  max-width: 300px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  margin: 30px 50px 50px;
+}
+
+.select-dropdown:hover {
+  background-color: #f9fafb; /* Light gray on hover */
+}
+
+.select-dropdown:focus {
+  outline: none;
+  border-color: #12bdce; /* Blue focus border */
+  box-shadow: 0 0 0 2px #12bdce;
+}
+
+.option-item {
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+.option-item:hover {
+  background-color: #f3f4f6; /* Light hover effect */
+}
