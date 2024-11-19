@@ -10,3 +10,8 @@ main {
 li {
   color: snow;
 }
+
+.choices li:hover {
+  color: pink;
+  cursor: pointer;
+}

@@ -10,6 +10,7 @@ import {
 import LocalStorage from "./common/LocalStorage";
 import jwt from "jsonwebtoken";
 import Home from "./Home";
+import Home2 from "./Home2";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import Videos from "./Videos";
@@ -128,7 +129,7 @@ function App() {
           <div className="App-main-content">
             <Switch>
               <Route exact path="/">
-                <Home />
+                <Home2 logout={logout} />
               </Route>
               <PrivateRoute path="/myvideos">
                 <MyVideos />
