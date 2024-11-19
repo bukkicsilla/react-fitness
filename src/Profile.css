@@ -34,7 +34,7 @@
 }
 .Profile-heading {
   color: gold;
-  margin: 0;
+  margin: 0 auto 50px;
   padding: 0;
 }
 #Profile-profile {
@@ -50,4 +50,13 @@
   font-size: 1.5rem;
   margin: 8px 0;
   color: snow;
+}
+
+.Profile-h3 {
+  color: snow;
+  margin-top: 50px;
+}
+
+.Profile-bestvideos {
+  width: 70%;
 }
