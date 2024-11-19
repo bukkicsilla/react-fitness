@@ -47,7 +47,6 @@ class FitnessApi {
   static async getVideos(id, mode = "muscle") {
     //const res = await axios.get(`${BASE_URL}/users/${currentUser.id}/videos`);
     const res = await this.request(`users/${id}/videos/${mode}`);
-    //console.log("res get videos", res);
     return res;
   }
 
@@ -63,7 +62,11 @@ class FitnessApi {
 
   static async getPlaylists(id) {
     const res = await this.request(`users/${id}/playlists-with-videos`);
-    console.log("res get playlists", res);
+    return res;
+  }
+
+  static async getPlaylistNames() {
+    const res = await this.request(`playlists`);
     return res;
   }
 
@@ -73,7 +76,6 @@ class FitnessApi {
       {},
       "post"
     );
-    console.log("res add video to playlist", res);
     return res;
   }
 
@@ -87,30 +89,25 @@ class FitnessApi {
   }
 
   static async rateVideo(id, rating) {
-    console.log("Rating video", id, rating);
     //const res = await this.request(`videos/rating/${1}`, rating, "post");
     const res = await this.request(`videos/rating/${id}/${rating}`, {}, "post");
-    console.log("res api rate video", res);
     return "res";
   }
 
   static async getBestVideos() {
     const res = await this.request(`videos`);
-    console.log("res get best videos", res);
     return res;
   }
 
   /** Signup for site. */
   static async signup(data) {
     let res = await this.request("auth/register", data, "post");
-    console.log("res.token", res.token);
     return res.token;
   }
 
   /** Get token for login from username, password. */
   static async login(data) {
     let res = await this.request("auth/token", data, "post");
-    //console.log("res.token", res.token);
     return res.token;
   }
 

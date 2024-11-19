@@ -16,7 +16,6 @@ const Videos = () => {
     async function getVideos() {
       try {
         const res = await axios.get(`${BASE_URL}/videos/${name}`);
-        console.log("video data", res.data);
         setVideos(res.data);
       } catch (e) {
         console.log("Error", e);

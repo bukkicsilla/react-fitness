@@ -1,18 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
-import UserContext from "./UserContext";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import FitnessApi from "./common/api";
 
 const BestVideos = () => {
-  let { currentUser } = useContext(UserContext);
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     async function fetchVideos() {
       try {
         const response = await FitnessApi.getBestVideos();
-        console.log("response", response.randomVideos);
         setVideos(response.randomVideos);
-        //setIsLoading(false);
       } catch (error) {
         console.error("Error fetching videos:", error);
       }

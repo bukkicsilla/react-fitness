@@ -29,7 +29,6 @@ function Playlists() {
   async function deletePlaylistVideo(playlistName, videoId) {
     try {
       const res = await FitnessApi.deletePlaylistVideo(playlistName, videoId);
-      console.log("delete playlist video", res);
       history.replace("/");
       history.push("/playlists");
     } catch (e) {

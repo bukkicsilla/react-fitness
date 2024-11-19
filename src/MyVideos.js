@@ -32,7 +32,6 @@ function MyVideos() {
   async function deleteUserVideo(id) {
     try {
       const res = await FitnessApi.deleteUserVideo(id);
-      console.log("delete uservideo", res);
       history.replace("/");
       history.push("/myvideos");
     } catch (e) {
