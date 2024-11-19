@@ -76,7 +76,7 @@ const Login = ({ login }) => {
             <Label htmlFor="password">Password</Label>
             <Input
               name="password"
-              type="text"
+              type="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}

@@ -90,7 +90,7 @@ const SignUpForm = ({ signup }) => {
               className="SignUp-Input"
               id="password"
               name="password"
-              type="text"
+              type="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
