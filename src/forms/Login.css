@@ -1,3 +1,9 @@
 .Login {
   margin-top: 100px;
 }
+.Login-link {
+  margin-bottom: 20px;
+}
+.Login-link a {
+  color: #123456;
+}

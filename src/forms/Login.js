@@ -85,6 +85,14 @@ const Login = ({ login }) => {
             <span className="NewItemForm-message">
               {formErrors ? <p>{formErrors}</p> : null}
             </span>
+            <div className="Login-link">
+              <a
+                href="https://flask-workout.onrender.com/reset_password"
+                target="_blank"
+              >
+                Forgot password?
+              </a>
+            </div>
             <Button type="submit" className="btn btn-lg btn-block" color="info">
               Login
             </Button>
