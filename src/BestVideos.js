@@ -26,7 +26,8 @@ const BestVideos = () => {
             src={`https://www.youtube.com/embed/${video.videoid}`}
             title="YouTube video player"
             frameborder="0"
-            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
           ></iframe>
           <Link to={`/addvideotoplaylist/${video.id}`} className="add-video">
             +
