@@ -37,7 +37,7 @@ const Start = ({ logout }) => {
             style={{ color: "gold", fontSize: "1.5rem" }}
             className="fa fa-book"
           ></i>
-          <span className="tooltip">About</span>
+          <span className="tooltip">Guide</span>
         </Link>
       </div>
     </div>

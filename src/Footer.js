@@ -12,7 +12,7 @@ const Footer = ({ logout }) => {
         Workout
       </a>*/}
       <NavLink exact to="/about">
-        About
+        Guide
       </NavLink>
       {currentUser && (
         <>
