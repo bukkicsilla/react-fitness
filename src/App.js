@@ -123,13 +123,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <UserContext.Provider value={{ currentUser, setCurrentUser, logout }}>
           <NavBar logout={logout} />
           {/*<h1 style={{ color: "#e9316d" }}> Color red Pink</h1>*/}
           <div className="App-main-content">
             <Switch>
               <Route exact path="/">
-                <Home2 logout={logout} />
+                <Home2 />
               </Route>
               <PrivateRoute path="/myvideos">
                 <MyVideos />

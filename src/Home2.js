@@ -8,7 +8,7 @@ import axios from "axios";
 import "./Home.css";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
-const Home2 = ({ logout }) => {
+const Home2 = () => {
   const [exercises, setExercises] = useState([]);
   let { currentUser, userId } = useContext(UserContext);
 
@@ -61,7 +61,7 @@ const Home2 = ({ logout }) => {
       </Groups>
       <section className="search-muscle-group">
         {/*<FindExercisesForm findExercisesByMuscle={setExercises} />*/}
-        <Start logout={logout} />
+        <Start />
         <ul id="exercise-list" className="pencilsnow">
           {exercises.map((exercise) => (
             <li key={exercise.name}>

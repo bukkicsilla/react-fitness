@@ -5,7 +5,7 @@ const About = () => {
     <div className="About">
       {/*<h1>Author: Csilla Bukki</h1>*/}
 
-      <h1> GETTING STARTED</h1>
+      <h1> ONBOARD GUIDE</h1>
       <section>
         <h2> Start Page</h2>
         <ol>
@@ -46,8 +46,8 @@ const About = () => {
           <li>
             <strong>Add Videos to "My Videos":</strong>
             To save a video for quick access later, click the green plus sign
-            (+) displayed next to the video. This adds the video to your
-            personalized "My Videos" collection.
+            (+) located in the top-right corner of the video. This adds the
+            video to your personalized "My Videos" collection.
           </li>
         </ol>
       </section>
