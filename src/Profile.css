@@ -15,22 +15,23 @@
   width: 80%;
   padding: 20px;
   margin: 0 auto;
-  border-radius: 8px;
   display: flex;
   flex-direction: column; /* Stack content vertically */
   align-items: center; /* Center content horizontally */
   justify-content: center; /* Center content vertically */
+  border-bottom: 2px solid gold;
 }
 .Profile-container-edit-delete {
   background-color: #4c6085;
   width: 50%;
   padding: 20px;
   margin: 20px auto;
-  border-radius: 8px;
   display: flex;
   flex-direction: column; /* Stack content vertically */
   align-items: center; /* Center content horizontally */
   justify-content: space-evenly; /* Center content vertically */
+  border: 2px solid snow;
+  border-radius: 5px;
 }
 .Profile-heading {
   color: gold;
