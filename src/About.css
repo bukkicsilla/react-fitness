@@ -53,3 +53,11 @@ strong {
 .About section {
   margin-bottom: 30px;
 }
+.About-plus {
+  color: forestgreen;
+  font-weight: bold;
+}
+.About-X {
+  color: #e9316d;
+  font-weight: bold;
+}
