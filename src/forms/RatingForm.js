@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import FitnessApi from "../common/api";
-import "./PlaylistForm.css";
 import "./RatingForm.css";
 
 const RatingForm = ({ video }) => {

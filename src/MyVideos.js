@@ -3,7 +3,8 @@ import { useHistory, Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import Spinner from "./common/Spinner";
 import FitnessApi from "./common/api";
-import RatingForm from "./forms/RatingForm";
+//import RatingForm from "./forms/RatingForm";
+import RatingStars from "./forms/RatingStars";
 import "./MyVideos.css";
 //import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -121,7 +122,7 @@ function MyVideos() {
                                 ></i>
                               </button>
                             </form>*/}
-                            <RatingForm video={video} />
+                            <RatingStars video={video} />
                             <Link
                               to={`/addvideotoplaylist/${video.id}`}
                               className="add-playlist"
