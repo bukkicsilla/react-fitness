@@ -113,7 +113,6 @@ class FitnessApi {
 
   static async resetPassword(data) {
     let res = await this.request("auth/passwordreset", data, "patch");
-    console.log("Reset Password", res.token);
     return res.token;
   }
 

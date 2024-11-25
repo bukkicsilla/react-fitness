@@ -9,6 +9,8 @@ import UserContext from "../UserContext";
 import { Card, CardBody, Form, Label, Input, Button } from "reactstrap";
 import axios from "axios";
 import "./Login.css";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+
 /** User login form.
  *
  * It shows form and manages update to state on changes.
@@ -30,25 +32,7 @@ const Login = ({ login }) => {
     email: "",
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
-  const [formErrors, setFormErrors] = useState([]);
-
-  /*function navigateToOtp() {
-    if (email) {
-      const OTP = Math.floor(Math.random() * 9000 + 1000);
-      console.log(OTP);
-      setOTP(OTP);
-
-      axios
-        .post("http://localhost:3001/auth/send_recovery_email", {
-          OTP,
-          recipient_email: email,
-        })
-        .then(() => setPage("otp"))
-        .catch(console.log);
-      return;
-    }
-    return alert("Please enter your email");
-  }*/
+  //const [formErrors, setFormErrors] = useState([]);
 
   async function navigateToOtp() {
     if (formData.email) {
@@ -57,13 +41,10 @@ const Login = ({ login }) => {
       setOTP(OTP);
 
       try {
-        const result = await axios.post(
-          "http://localhost:3001/send_recovery_email",
-          {
-            OTP,
-            recipient_email: formData.email,
-          }
-        );
+        const result = await axios.post(`${BASE_URL}/send_recovery_email`, {
+          OTP,
+          recipient_email: formData.email,
+        });
         console.log("OTP result", result);
         setPage("otp");
         setEmail(formData.email);
@@ -97,7 +78,7 @@ const Login = ({ login }) => {
         // imperatively redirect to correct page and refresh to see new data
         history.push("/");
       } else {
-        setFormErrors(result.errors);
+        //setFormErrors(result.errors);
       }
     } catch (err) {
       console.log(err);

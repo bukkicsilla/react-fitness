@@ -4,30 +4,19 @@ import { useContext } from "react";
 import UserContext from "../UserContext";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 export default function() {
   const { email, otp, setPage } = useContext(UserContext);
   const [timerCount, setTimer] = React.useState(60);
   const [OTPinput, setOTPinput] = useState([0, 0, 0, 0]);
   const [disable, setDisable] = useState(true);
-  /*function resendOTP() {
-    if (disable) return;
-    axios
-      .post("http://localhost:3001/send_recovery_email", {
-        OTP: otp,
-        recipient_email: email,
-      })
-      .then(() => setDisable(true))
-      .then(() => alert("A new OTP has succesfully been sent to your email."))
-      .then(() => setTimer(60))
-      .catch(console.log);
-  }*/
 
   async function resendOTP() {
     if (disable) return;
 
     try {
-      await axios.post("http://localhost:3001/send_recovery_email", {
+      await axios.post(`${BASE_URL}/send_recovery_email`, {
         OTP: otp,
         recipient_email: email,
       });

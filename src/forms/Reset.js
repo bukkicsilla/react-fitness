@@ -5,7 +5,6 @@ import FitnessApi from "../common/api";
 
 export default function Reset({ loginreset }) {
   const { email, setPage } = useContext(UserContext);
-  let { currentUser } = useContext(UserContext);
   const history = useHistory();
   const initialState = {
     password: "",
@@ -26,7 +25,6 @@ export default function Reset({ loginreset }) {
     try {
       console.log("Reset password", formData);
       console.log("Reset email", email);
-      //console.log("Reset currectUser", currentUser);
       if (formData.password !== formData.confirmpassword) {
         alert("Passwords do not match");
         return;
@@ -78,24 +76,6 @@ export default function Reset({ loginreset }) {
                   required
                 />
               </div>
-              {/*<div className="form-check d-flex align-items-start mb-3">
-                <input
-                  id="newsletter"
-                  aria-describedby="newsletter"
-                  type="checkbox"
-                  className="form-check-input"
-                  required
-                />
-                <label htmlFor="newsletter" className="form-check-label ms-2">
-                  I accept the{" "}
-                  <a
-                    href="#"
-                    className="text-primary text-decoration-underline"
-                  >
-                    Terms and Conditions
-                  </a>
-                </label>
-              </div>*/}
               <button className="btn btn-primary w-100">Reset Password</button>
             </form>
           </div>
