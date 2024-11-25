@@ -111,6 +111,12 @@ class FitnessApi {
     return res.token;
   }
 
+  static async resetPassword(data) {
+    let res = await this.request("auth/passwordreset", data, "patch");
+    console.log("Reset Password", res.token);
+    return res.token;
+  }
+
   /** Save user profile edits. */
   /*static async saveProfile(username, data) {
     let res = await this.request(`users/${username}`, data, "patch");

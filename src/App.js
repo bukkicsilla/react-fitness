@@ -1,15 +1,9 @@
 //import logo from "./logo.svg";
 import React, { useState, useEffect } from "react";
-import {
-  Switch,
-  BrowserRouter,
-  Route,
-  Redirect,
-  useHistory,
-} from "react-router-dom";
+import { Switch, BrowserRouter, Route } from "react-router-dom";
 import LocalStorage from "./common/LocalStorage";
 import jwt from "jsonwebtoken";
-import Home from "./Home";
+//import Home from "./Home";
 import Home2 from "./Home2";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
@@ -26,6 +20,8 @@ import About from "./About";
 import MyVideos from "./MyVideos";
 import Playlists from "./Playlists";
 import PlaylistForm from "./forms/PlaylistForm";
+import OTPInput from "./forms/OTPInput";
+import Reset from "./forms/Reset";
 import "./App.css";
 
 // Key name for storing token in localStorage for "remember me" re-login
@@ -35,6 +31,18 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   //const [userId, setUserId] = useState(0);
   const [token, setToken] = LocalStorage(TOKEN_STORAGE_ID);
+  const [page, setPage] = useState("login");
+  const [email, setEmail] = useState();
+  const [otp, setOTP] = useState();
+
+  function NavigateComponents() {
+    if (page === "login") return <Login login={login} />;
+    if (page === "otp") return <OTPInput />;
+    if (page === "reset") return <Reset loginreset={loginAfterPasswordReset} />;
+
+    return <Login login={login} />;
+  }
+
   useEffect(() => {
     async function getCurrentUser() {
       if (token) {
@@ -91,6 +99,19 @@ function App() {
     }
   }
 
+  async function loginAfterPasswordReset(token) {
+    try {
+      let { username } = jwt.decode(token);
+      FitnessApi.token = token;
+      let currentUser = await FitnessApi.getCurrentUser(username);
+      setCurrentUser(currentUser);
+      return { success: true };
+    } catch (errors) {
+      console.error("login failed", errors);
+      return { success: false, errors };
+    }
+  }
+
   /** Deletes a user and all their data */
   async function deleteProfile() {
     try {
@@ -123,7 +144,19 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser, logout }}>
+        <UserContext.Provider
+          value={{
+            currentUser,
+            setCurrentUser,
+            logout,
+            page,
+            setPage,
+            email,
+            setEmail,
+            otp,
+            setOTP,
+          }}
+        >
           <NavBar logout={logout} />
           {/*<h1 style={{ color: "#e9316d" }}> Color red Pink</h1>*/}
           <div className="App-main-content">
@@ -138,7 +171,8 @@ function App() {
                 <Playlists />
               </Route>
               <Route exact path="/login">
-                <Login login={login} />
+                {/*<Login login={login} />*/}
+                <NavigateComponents />
               </Route>
               <Route exact path="/signup">
                 <SignUp signup={signup} />

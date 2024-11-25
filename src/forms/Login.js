@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+/*******
+ * Password reset functionality
+ * https://www.youtube.com/watch?v=A8k4A7TuhDY&t=588s
+ * https://github.com/ksekwamote/password_recovery/tree/master
+ */
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import UserContext from "../UserContext";
 import { Card, CardBody, Form, Label, Input, Button } from "reactstrap";
+import axios from "axios";
 import "./Login.css";
 /** User login form.
  *
@@ -14,24 +21,59 @@ import "./Login.css";
  */
 
 const Login = ({ login }) => {
+  //const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { setEmail, setPage, email, setOTP } = useContext(UserContext);
   const history = useHistory();
   const INITIAL_STATE = {
     username: "",
     password: "",
+    email: "",
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
   const [formErrors, setFormErrors] = useState([]);
 
-  /*console.debug(
-    "Login",
-    "login=",
-    typeof login,
-    "formData=",
-    formData,
-    "formErrors=",
-    formErrors
-  );*/
+  /*function navigateToOtp() {
+    if (email) {
+      const OTP = Math.floor(Math.random() * 9000 + 1000);
+      console.log(OTP);
+      setOTP(OTP);
 
+      axios
+        .post("http://localhost:3001/auth/send_recovery_email", {
+          OTP,
+          recipient_email: email,
+        })
+        .then(() => setPage("otp"))
+        .catch(console.log);
+      return;
+    }
+    return alert("Please enter your email");
+  }*/
+
+  async function navigateToOtp() {
+    if (formData.email) {
+      const OTP = Math.floor(Math.random() * 9000 + 1000);
+      console.log(OTP);
+      setOTP(OTP);
+
+      try {
+        const result = await axios.post(
+          "http://localhost:3001/send_recovery_email",
+          {
+            OTP,
+            recipient_email: formData.email,
+          }
+        );
+        console.log("OTP result", result);
+        setPage("otp");
+        setEmail(formData.email);
+      } catch (error) {
+        console.log(error);
+      }
+      return;
+    }
+    //alert("Please enter your email");
+  }
   /** Update form fields */
 
   const handleChange = (evt) => {
@@ -45,6 +87,10 @@ const Login = ({ login }) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
+      /*console.log("Email", formData.email);
+      if (formData.email) {
+        return;
+      }*/
       let result = await login(formData);
       // makes a POST request to Api.js and adds corresponding data to matching category in db.json
       if (result.success) {
@@ -82,17 +128,28 @@ const Login = ({ login }) => {
               onChange={handleChange}
               required
             ></Input>
-            <span className="NewItemForm-message">
+            {/*<span className="NewItemForm-message">
               {formErrors ? <p>{formErrors}</p> : null}
-            </span>
+            </span>*/}
             <div className="Login-link">
-              <a
+              {/*<a
                 href="https://flask-workout.onrender.com/reset_password"
                 target="_blank"
               >
                 Forgot password?
+              </a>*/}
+              <a href="#" onClick={() => navigateToOtp()}>
+                Forgot password?
               </a>
             </div>
+            <Label htmlFor="email">Type your Email</Label>
+            <Input
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            ></Input>
             <Button type="submit" className="btn btn-lg btn-block" color="info">
               Login
             </Button>
