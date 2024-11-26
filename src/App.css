@@ -94,8 +94,10 @@ a {
     transform: rotate(360deg);
   }
 }*/
-.OTP,
-.Reset {
+
+.Reset,
+.OTP {
   width: 35%;
   margin: 0 auto;
+  padding-top: 80px;
 }

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import UserContext from "../UserContext";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 export default function() {
@@ -11,17 +12,18 @@ export default function() {
   const [timerCount, setTimer] = React.useState(60);
   const [OTPinput, setOTPinput] = useState([0, 0, 0, 0]);
   const [disable, setDisable] = useState(true);
+  const [resendMsg, setResendMsg] = useState("Resend OTP");
 
   async function resendOTP() {
     if (disable) return;
 
     try {
+      setResendMsg("Check Email");
       await axios.post(`${BASE_URL}/send_recovery_email`, {
         OTP: otp,
         recipient_email: email,
       });
       setDisable(true);
-      alert("A new OTP has successfully been sent to your email.");
       setTimer(60);
     } catch (error) {
       console.log(error);
@@ -49,19 +51,20 @@ export default function() {
       });
     }, 1000); //each count lasts for a second
     //cleanup the interval on complete
+    setResendMsg("Resend OTP");
     return () => clearInterval(interval);
   }, [disable]);
 
   return (
-    <div className="OTP d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="bg-white p-4 shadow-lg mx-auto w-100 max-w-lg rounded">
+    <div className="OTP">
+      <div className="bg-white p-4 shadow-lg mx-auto  max-w-lg rounded">
         <div className="mx-auto d-flex flex-column w-100 max-w-md gap-4">
           <div className="d-flex flex-column align-items-center text-center gap-2">
             <div className="fw-semibold fs-3">
               <h3>Email Verification</h3>
             </div>
             <div className="d-flex flex-row text-secondary fw-medium small">
-              <h5>We have sent a code to your email {email}</h5>
+              <h5>We have sent a code to your email: {email}</h5>
             </div>
           </div>
 
@@ -156,7 +159,7 @@ export default function() {
                     >
                       {disable
                         ? `Didn't receive code? Resend OTP in ${timerCount}s`
-                        : "Resend OTP"}
+                        : resendMsg}
                     </button>
                   </div>
                 </div>

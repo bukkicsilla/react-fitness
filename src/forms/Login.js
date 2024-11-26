@@ -23,7 +23,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
  */
 
 const Login = ({ login }) => {
-  //const { currentUser, setCurrentUser } = useContext(UserContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { setEmail, setPage, email, setOTP } = useContext(UserContext);
   const history = useHistory();
   const INITIAL_STATE = {
@@ -33,6 +33,14 @@ const Login = ({ login }) => {
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
   //const [formErrors, setFormErrors] = useState([]);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   async function navigateToOtp() {
     if (formData.email) {
@@ -45,7 +53,7 @@ const Login = ({ login }) => {
           OTP,
           recipient_email: formData.email,
         });
-        console.log("OTP result", result);
+        //console.log("OTP result", result);
         setPage("otp");
         setEmail(formData.email);
       } catch (error) {
@@ -119,18 +127,30 @@ const Login = ({ login }) => {
               >
                 Forgot password?
               </a>*/}
-              <a href="#" onClick={() => navigateToOtp()}>
+              <a href="#" onClick={handleOpenModal}>
                 Forgot password?
               </a>
             </div>
-            <Label htmlFor="email">Type your Email</Label>
-            <Input
-              name="email"
-              type="text"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-            ></Input>
+            {isModalOpen && (
+              <div className="Login-modal">
+                <div className="Login-modal-content">
+                  <span className="Login-close" onClick={handleCloseModal}>
+                    &times;
+                  </span>
+                  <Label htmlFor="email">Type your Email</Label>
+                  <Input
+                    name="email"
+                    type="text"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  ></Input>
+                  <a href="#" onClick={() => navigateToOtp()}>
+                    Password Recovery
+                  </a>
+                </div>
+              </div>
+            )}
             <Button type="submit" className="btn btn-lg btn-block" color="info">
               Login
             </Button>
