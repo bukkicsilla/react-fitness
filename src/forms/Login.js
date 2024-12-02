@@ -3,7 +3,7 @@
  * https://www.youtube.com/watch?v=A8k4A7TuhDY&t=588s
  * https://github.com/ksekwamote/password_recovery/tree/master
  */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../UserContext";
 import { Card, CardBody, Form, Label, Input, Button } from "reactstrap";
@@ -33,6 +33,10 @@ const Login = ({ login }) => {
   };
   const [formData, setFormData] = useState(INITIAL_STATE);
   //const [formErrors, setFormErrors] = useState([]);
+  console.log("Initial State:", INITIAL_STATE);
+  React.useEffect(() => {
+    setFormData(INITIAL_STATE);
+  }, []); // Runs on mount
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -81,6 +85,7 @@ const Login = ({ login }) => {
         return;
       }*/
       let result = await login(formData);
+      setFormData(INITIAL_STATE);
       // makes a POST request to Api.js and adds corresponding data to matching category in db.json
       if (result.success) {
         // imperatively redirect to correct page and refresh to see new data

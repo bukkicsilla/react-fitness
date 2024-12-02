@@ -85,8 +85,7 @@ const About = () => {
             To rate a video, click on the star icon located beneath it. A popup
             modal will appear where you can select a rating from{" "}
             <span class="About-rating">1 to 10</span>. After choosing your
-            desired rating, confirm to save your feedback. This helps you keep
-            track of the videos you enjoy the most or find most effective.
+            desired rating, click on the choosen star.
           </li>
         </ol>
       </section>

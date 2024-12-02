@@ -15,3 +15,19 @@ li {
   color: pink;
   cursor: pointer;
 }
+
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  main {
+    width: 90%;
+    display: block;
+  }
+  .choices {
+    width: 100%;
+  }
+  section {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 3px solid snow;
+  }
+}

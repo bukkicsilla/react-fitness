@@ -61,3 +61,10 @@ strong {
   color: #e9316d;
   font-weight: bold;
 }
+
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  .About {
+    width: 90%;
+  }
+}

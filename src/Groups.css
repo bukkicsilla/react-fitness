@@ -1,3 +1,9 @@
 .muscle-groups {
   width: 50%;
 }
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  .muscle-groups {
+    width: 100%;
+  }
+}
