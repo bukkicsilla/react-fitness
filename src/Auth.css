@@ -29,3 +29,21 @@
 .Auth-link {
   margin: 0 10px;
 }
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  .auth {
+    width: 90%;
+    margin: 30px 5px;
+    padding: 50px 10px;
+  }
+  .Auth-container {
+    width: 90%;
+    padding: 10px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .Auth-link {
+    margin: 0 5px;
+  }
+}
