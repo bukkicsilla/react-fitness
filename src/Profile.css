@@ -85,7 +85,7 @@
   display: block;
 }
 
-/*responsive desing */
+/*responsive desing for smartphones*/
 @media screen and (max-width: 480px) {
   .Profile-two-containers {
     width: 90%;
@@ -102,5 +102,25 @@
   iframe {
     width: 240px;
     height: 135px;
+  }
+}
+
+/* Responsive design for tablets (iPad, etc.) */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .Profile-two-containers {
+    width: 70%;
+  }
+  .Profile-container-info {
+    width: 70%;
+  }
+  .Profile-container-edit-delete {
+    width: 70%;
+  }
+  .Profile-bestvideos {
+    width: 70%;
+  }
+  iframe {
+    width: 300px;
+    height: 169px;
   }
 }
