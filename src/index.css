@@ -262,11 +262,11 @@ footer {
   cursor: pointer;
 }*/
 /* Show '+' or 'X' when the iframe is hovered */
-.video-wrapper:hover .delete-video,
+/*.video-wrapper:hover .delete-video,
 .video-wrapper:hover .add-video,
 .video-wrapper:hover .add-playlist {
   display: block;
-}
+}*/
 
 /**************************************/
 

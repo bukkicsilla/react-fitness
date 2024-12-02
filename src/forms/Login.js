@@ -151,7 +151,7 @@ const Login = ({ login }) => {
                     onChange={handleChange}
                   ></Input>
                   <a href="#" onClick={() => navigateToOtp()}>
-                    Password Recovery
+                    Send Password Recovery Code
                   </a>
                 </div>
               </div>

@@ -101,3 +101,11 @@ a {
   margin: 0 auto;
   padding-top: 80px;
 }
+
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  .Reset,
+  .OTP {
+    width: 90%;
+  }
+}
