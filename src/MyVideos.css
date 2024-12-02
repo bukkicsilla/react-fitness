@@ -75,3 +75,15 @@
 .option-item:hover {
   background-color: #f3f4f6; /* Light hover effect */
 }
+
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  .add-playlist {
+    top: 5px;
+    left: 8px;
+  }
+  /*.delete-video {
+    top: 5px;
+    right: 55px;
+  }*/
+}

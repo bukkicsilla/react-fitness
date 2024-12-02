@@ -14,9 +14,9 @@ const Profile = ({ deleteProfile }) => {
         </div>
         <div>
           {/*<h2 className="user">Your profile info:</h2>*/}
-          <h4 className="user">First name: {currentUser.first_name}</h4>
-          <h4 className="user">Last name: {currentUser.last_name}</h4>
-          <h4 className="user">Email: {currentUser.email}</h4>
+          <h4 className="Profile-user">First name: {currentUser.first_name}</h4>
+          <h4 className="Profile-user">Last name: {currentUser.last_name}</h4>
+          <h4 className="Profile-user">Email: {currentUser.email}</h4>
         </div>
       </div>
       <h3 className="Profile-h3"> One of the best rated videos.</h3>

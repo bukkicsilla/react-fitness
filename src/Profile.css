@@ -41,7 +41,7 @@
 #Profile-profile {
   margin-top: 20px;
 }
-.user {
+.Profile-user {
   color: #36f1cd;
 }
 .btn-edit,
@@ -60,4 +60,28 @@
 
 .Profile-bestvideos {
   width: 70%;
+}
+
+/*responsive desing */
+@media screen and (max-width: 480px) {
+  .Profile-two-containers {
+    width: 90%;
+  }
+  .Profile-container-info {
+    width: 90%;
+  }
+  .Profile-container-edit-delete {
+    width: 90%;
+  }
+  .Profile-bestvideos {
+    width: 100%;
+  }
+  iframe {
+    width: 240px;
+    height: 135px;
+  }
+  .add-video {
+    top: 5px;
+    right: 85px;
+  }
 }
