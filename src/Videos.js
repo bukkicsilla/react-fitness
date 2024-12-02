@@ -42,9 +42,9 @@ const Videos = () => {
       <div className="container-md">
         <h2 className="text-center mt-4">Exercise: {name}</h2>
 
-        <section className="videos">
+        <section className="Videos-videos">
           {videos.map((video) => (
-            <div key={video.videoid} className="video-wrapper">
+            <div key={video.videoid} className="Videos-video-wrapper">
               <iframe
                 width="320"
                 height="180"
@@ -55,7 +55,7 @@ const Videos = () => {
                 allowFullScreen
               ></iframe>
               <button
-                className="add-video"
+                className="Videos-add-video"
                 onClick={() => addVideo(name, video.videoid)}
               >
                 +

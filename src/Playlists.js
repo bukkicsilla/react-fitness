@@ -51,7 +51,10 @@ function Playlists() {
                 <div className="col">
                   <div className="d-flex overflow-auto flex-video-carousel">
                     {playlist.videos.map((video) => (
-                      <div key={video.id} className="me-2 video-wrapper">
+                      <div
+                        key={video.id}
+                        className="me-2 Playlists-video-wrapper"
+                      >
                         <iframe
                           width="320"
                           height="180"
@@ -62,7 +65,7 @@ function Playlists() {
                           allowFullScreen
                         ></iframe>
                         <button
-                          className="delete-video"
+                          className="Playlists-delete-video"
                           onClick={() =>
                             deletePlaylistVideo(playlist.name, video.id)
                           }

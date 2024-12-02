@@ -7,14 +7,14 @@
 #btn-rating {
   border-radius: 50%;
 }
-.video-wrapper {
+.MyVideos-video-wrapper {
   position: relative;
   display: inline-block;
   margin: 50px;
 }
 
 /* The save '+' and delete 'X' anchor tag */
-.delete-video {
+.MyVideos-delete-video {
   display: none;
   position: absolute;
   top: 5px;
@@ -27,7 +27,7 @@
   border-radius: 50%;
   cursor: pointer;
 }
-.add-playlist {
+.MyVideos-add-playlist {
   display: none;
   position: absolute;
   top: 5px;
@@ -41,8 +41,8 @@
   cursor: pointer;
 }
 /* Show '+' or 'X' when the iframe is hovered */
-.video-wrapper:hover .delete-video,
-.video-wrapper:hover .add-playlist {
+.MyVideos-video-wrapper:hover .MyVideos-delete-video,
+.MyVideos-video-wrapper:hover .MyVideos-add-playlist {
   display: block;
 }
 
@@ -74,16 +74,4 @@
 
 .option-item:hover {
   background-color: #f3f4f6; /* Light hover effect */
-}
-
-/*responsive desing */
-@media screen and (max-width: 480px) {
-  .add-playlist {
-    top: 5px;
-    left: 8px;
-  }
-  /*.delete-video {
-    top: 5px;
-    right: 55px;
-  }*/
 }

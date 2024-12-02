@@ -77,7 +77,10 @@ function MyVideos() {
                     {exercises.map((exercise) =>
                       exercise.videos.map((video) =>
                         ids.includes(video.id) ? (
-                          <div key={video.id} className="me-2 video-wrapper">
+                          <div
+                            key={video.id}
+                            className="me-2 MyVideos-video-wrapper"
+                          >
                             <iframe
                               width="320"
                               height="180"
@@ -88,7 +91,7 @@ function MyVideos() {
                               allowFullScreen
                             ></iframe>
                             <button
-                              className="delete-video"
+                              className="MyVideos-delete-video"
                               onClick={() => deleteUserVideo(video.id)}
                             >
                               X
@@ -125,7 +128,7 @@ function MyVideos() {
                             <RatingStars video={video} />
                             <Link
                               to={`/addvideotoplaylist/${video.id}`}
-                              className="add-playlist"
+                              className="MyVideos-add-playlist"
                             >
                               +
                             </Link>

@@ -5,3 +5,26 @@
   justify-content: center;
   margin-top: 20px;
 }
+
+.Playlists-video-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 50px;
+}
+.Playlists-delete-video {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.Playlists-video-wrapper:hover .Playlists-delete-video {
+  display: block;
+}

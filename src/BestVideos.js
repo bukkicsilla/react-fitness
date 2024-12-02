@@ -19,7 +19,7 @@ const BestVideos = () => {
   return (
     <section className="Profile-bestvideos">
       {videos.map((video) => (
-        <div key={video.videoid} className="video-wrapper">
+        <div key={video.videoid} className="Profile-video-wrapper">
           <iframe
             width="400"
             height="225"
@@ -29,7 +29,10 @@ const BestVideos = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
-          <Link to={`/addvideotoplaylist/${video.id}`} className="add-video">
+          <Link
+            to={`/addvideotoplaylist/${video.id}`}
+            className="Profile-add-video"
+          >
             +
           </Link>
         </div>

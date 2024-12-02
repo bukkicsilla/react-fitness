@@ -1,15 +1,14 @@
-.videos {
+.Videos-videos {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-/* save and delete anchor button on top right corner of video */
-.video-wrapper {
+.Videos-video-wrapper {
   position: relative;
   display: inline-block;
   margin: 50px;
 }
-.add-video {
+.Videos-add-video {
   display: none;
   position: absolute;
   top: 5px;
@@ -23,10 +22,14 @@
   cursor: pointer;
 }
 
+.Videos-video-wrapper:hover .Videos-add-video {
+  display: block;
+}
+
 /*responsive desing */
-@media screen and (max-width: 480px) {
+/*@media screen and (max-width: 480px) {
   .add-video {
     top: 5px;
     right: 55px;
   }
-}
+}*/
