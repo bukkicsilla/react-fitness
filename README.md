@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+#Fitness
+##My Videos
+![Node-React Fitness](public/FitnessMyVideos.png)
+##Playlists
+![Node-React Fitness](public/FitnessPlaylists.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Description
 
-## Available Scripts
+[Fitness](https://react-fitness-9b5g.onrender.com/) is a web application designed to help users find workout exercises through YouTube videos. Users can save videos from a large collection, then create playlists from their saved videos to combine different exercises for a complete workout. They can also rate the videos they've saved.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Searching for exercises**: Users can search for exercises by specific muscle groups, with results displayed as a list of exercise names with links.
+- **Save and rate videos**: By clicking on an exercise name, users are shown a list of YouTube videos. They can save  and rate videos from this list.
+- **Create playlists**: Users can create playlists from saved videos, mixing different types of exercises within a single playlist.
+- **User Authentication**: Users can register, log in, save YouTube videos, create playlists, and recover their passwords if needed.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## User Flow
 
-### `npm test`
+1. Users can search for exercises by specific muscle groups.
+2. After logging in, users can navigate to a list of YouTube videos for a specific exercise name.
+3. To save a video to 'My Videos,' users must click the plus sign on a green background. They can delete a video from 'My Videos' by clicking the X on a red background.
+4. Users can add a video from 'My Videos' to a playlist by clicking the plus sign on a green background and typing the name of the playlist. Deleting a video from a playlist works the same way as it does with 'My Videos.' 
+5. Users can access their profile page to update their information.
+6. There is a guidance page on how to use this application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API
 
-### `npm run build`
+The Workout application uses the [api-workout](https://api-workout-sq1f.onrender.com/) to fetch embedded YouTube videos and their information. A total of 156 exerceses have also been collected and permanently saved from this source.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The NodeJS backend handles the routing for the React frontend. [node-fitness](https://node-fitness.onrender.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Frontend
 
-### `npm run eject`
+The frontend was created using React. [react-fitness](https://react-fitness-9b5g.onrender.com/) 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to Run
+```
+# Clone Repository
+$ git clone https://github.com/bukkicsilla/react-fitness.git
+$ npm install
+$ npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technology Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Front-end**: React and Bootstrap
+- **Back-end**: NodeJS
+- **Database**: PostgreSQL
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deployment
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The application is deployed using [Render](https://render.com/), and the PostgreSQL database is hosted on [Supabase](https://supabase.com//).
