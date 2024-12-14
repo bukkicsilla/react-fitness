@@ -18,7 +18,9 @@ import Profile from "./Profile";
 import EditUserForm from "./forms/EditUserForm";
 import About from "./About";
 import MyVideos from "./MyVideos";
+import MyVideos2 from "./MyVideos2";
 import Playlists from "./Playlists";
+import Playlists2 from "./Playlists2";
 import PlaylistForm from "./forms/PlaylistForm";
 import OTPInput from "./forms/OTPInput";
 import Reset from "./forms/Reset";
@@ -165,10 +167,10 @@ function App() {
                 <Home2 />
               </Route>
               <PrivateRoute path="/myvideos">
-                <MyVideos />
+                <MyVideos2 />
               </PrivateRoute>
               <Route path="/playlists">
-                <Playlists />
+                <Playlists2 />
               </Route>
               <Route exact path="/login">
                 {/*<Login login={login} />*/}
