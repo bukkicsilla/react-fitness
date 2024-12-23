@@ -24,9 +24,10 @@ function Playlists2() {
   }, [currentUser.id]);
 
   // Modified delete function to update state instead of rerendering the page
-  async function deletePlaylistVideo(playlistName, videoId) {
+  /*async function deletePlaylistVideo(playlistName, videoId) {
     try {
       // Delete the video from the playlist on the backend
+      console.log("playlist", playlists[0].videos.length);
       await FitnessApi.deletePlaylistVideo(playlistName, videoId);
 
       // Update the playlists state to remove the video locally
@@ -39,6 +40,32 @@ function Playlists2() {
               }
             : playlist
         )
+      );
+    } catch (e) {
+      console.log("Error", e);
+    }
+  }*/
+
+  async function deletePlaylistVideo(playlistName, videoId) {
+    try {
+      // Delete the video from the playlist on the backend
+      await FitnessApi.deletePlaylistVideo(playlistName, videoId);
+
+      // Update the playlists state to remove the video locally and filter out empty playlists
+      setPlaylists(
+        (prevPlaylists) =>
+          prevPlaylists
+            .map((playlist) =>
+              playlist.name === playlistName
+                ? {
+                    ...playlist,
+                    videos: playlist.videos.filter(
+                      (video) => video.id !== videoId
+                    ),
+                  }
+                : playlist
+            )
+            .filter((playlist) => playlist.videos.length > 0) // Filter out empty playlists
       );
     } catch (e) {
       console.log("Error", e);
