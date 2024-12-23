@@ -28,13 +28,47 @@ function MyVideos2() {
   }, [mode, currentUser.id]);
 
   // Modified delete function to update state instead of rerendering the page
-  async function deleteUserVideo(id) {
+  /*async function deleteUserVideo(id) {
     try {
       // Delete video from the backend
       await FitnessApi.deleteUserVideo(id);
 
       // Update state to remove the video from the UI without reloading
       setIds((prevIds) => prevIds.filter((videoId) => videoId !== id));
+    } catch (e) {
+      console.log("Error", e);
+    }
+  }*/
+
+  async function deleteUserVideo(id) {
+    try {
+      // Delete the video from the backend
+      await FitnessApi.deleteUserVideo(id);
+
+      // Update state to remove the video from the UI
+      setIds((prevIds) => prevIds.filter((videoId) => videoId !== id));
+
+      setMuscleGroups((prevMuscleGroups) => {
+        const updatedMuscleGroups = {};
+
+        for (const [muscle, exercises] of Object.entries(prevMuscleGroups)) {
+          const updatedExercises = exercises.map((exercise) => ({
+            ...exercise,
+            videos: exercise.videos.filter((video) => video.id !== id),
+          }));
+
+          // Keep only exercises with remaining videos
+          const nonEmptyExercises = updatedExercises.filter(
+            (exercise) => exercise.videos.length > 0
+          );
+
+          if (nonEmptyExercises.length > 0) {
+            updatedMuscleGroups[muscle] = nonEmptyExercises;
+          }
+        }
+
+        return updatedMuscleGroups;
+      });
     } catch (e) {
       console.log("Error", e);
     }
